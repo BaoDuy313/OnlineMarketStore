@@ -1,0 +1,88 @@
+﻿@model OnlineMarketStore.Models.Category
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminCategories" asp-action="Index">Caregory List</a>
+            <span class="breadcrumb-item active">Category Information</span>
+        </nav>
+    </div>
+</div>
+
+<div class="page-header no-gutters has-tab">
+    <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+        <div class="media align-items-center m-b-15">
+            
+            <div class="m-l-15">
+                <h4 class="m-b-0">@Model.CatName</h4>
+                <p class="text-muted m-b-0">ID: #@Model.CatId</p>
+            </div>
+        </div>
+        <div class="m-b-15">
+            <a class="btn btn-primary" asp-area="Admin" asp-controller="AdminCategories" asp-action="Edit" asp-route-id="@Model.CatId">Edit</a>
+        </div>
+    </div>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab"> Overview</a>
+        </li>
+    </ul>
+</div>
+<div class="container-fluid">
+    <div class="tab-content m-t-15">
+        <div class="tab-pane fade show active" id="product-overview">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Basic Info</h4>
+                    <div class="table-responsive">
+                        <table class="product-info-table m-t-20">
+                            <tbody>
+                                <tr>
+                                    <td>Page Name:</td>
+                                    <td class="text-dark font-weight-semibold">@Model.CatName</td>
+                                </tr>
+                                <tr>
+                                    <td>Alias:</td>
+                                    <td>@Model.Alias</td>
+                                </tr>
+                                <tr>
+                                    <td>Status:</td>
+                                    @if (Model.Published)
+                                    {
+
+
+                                        <td>
+                                            <span class="badge badge-pill badge-cyan">Public</span>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <span class="badge badge-pill badge-red">Block</span>
+                                        </td>
+                                    }
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Description</h4>
+                </div>
+                <div class="card-body">
+                    <p>@Model.Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a class="btn btn-primary" asp-action="Index">Back to List</a>
+

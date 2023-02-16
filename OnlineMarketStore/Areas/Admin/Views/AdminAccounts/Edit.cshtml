@@ -1,0 +1,109 @@
+﻿@model OnlineMarketStore.Models.Account
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Index">Account List</a>
+            <span class="breadcrumb-item active">Account Create</span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <form asp-controller="AdminAccounts" asp-action="Edit" asp-route-id="@Model.AccountId" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AccountId" />
+            @*<input type="hidden" asp-for="Thumb" />*@
+            <input type="hidden" asp-for="CreateDate" />
+            <input type="hidden" asp-for="Email" />
+            <input type="hidden" asp-for="Password" />
+            <input type="hidden" asp-for="Salt" />
+            <div class="page-header no-gutters has-tab">
+                <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+                    <div class="media align-items-center m-b-15">
+                        <a class="btn btn-primary" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Index">Back to List</a>
+                    </div>
+                    <div class="m-b-15">
+                        <button class="btn btn-primary">
+                            <i class="anticon anticon-save"></i>
+                            <span>Save</span>
+                        </button>
+                    </div>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#page-edit-basic">Basic Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#page-edit-option">Option Info</a>
+                    </li>
+                    @*<li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#page-edit-description">Description</a>
+                </li>*@
+                </ul>
+            </div>
+            <div class="tab-content m-t-15">
+                <div class="tab-pane fade show active" id="page-edit-basic">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-semibold" for="pageName">Account Name</label>
+                                    <input type="text" class="form-control" asp-for="FullName" placeholder="Name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-semibold" for="pagePrice">Phone</label>
+                                    <input type="text" class="form-control" asp-for="Phone" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="row">
+
+
+                            </div>
+                            @*<div class="form-group">
+                            <label class="font-weight-semibold" for="pageBrand">Image</label>
+                            <input class="form-control-file" name="fThumb" type="file" asp-for="Thumb">
+                        </div>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="page-edit-option">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group col-6">
+                                <label class="font-weight-semibold" for="productCategory">Account</label>
+                                <select class="custom-select" asp-for="RoleId" style="min-width: 300px;" required asp-items="ViewBag.RoleId">
+                                    <option value="" disabled selected>Choose Account</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="m-t-25">
+                                    <div class="form-group d-flex align-items-center">
+                                        <div class="switch m-r-10">
+                                            <input type="checkbox" asp-for="Active">
+                                            <label for="Active"></label>
+                                        </div>
+                                        <label>Publish</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="tab-pane fade" id="page-edit-description">
+                <div class="card">
+                    <div class="card-body">
+                        <textarea class="summernote" asp-for="Contents"></textarea>
+                    </div>
+                </div>
+            </div>*@
+            </div>
+        </form>
+    </div>
+</div>

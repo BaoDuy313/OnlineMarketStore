@@ -1,0 +1,134 @@
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<OnlineMarketStore.Models.Customer>
+@{
+    int CurrentPage = ViewBag.CurrentPage;
+    ViewData["Title"] = "Customer List";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <span class="breadcrumb-item active">Customer List : page @CurrentPage</span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="row m-b-30">
+            <div class="col-lg-8">
+                <div class="d-md-flex">
+                    <div class="m-b-10 m-r-15">
+                        <select class="custom-select" id="idrole" name="idrole" style="min-width: 300px;" required asp-items="ViewBag.RoleId">
+                            <option value="" disabled selected>Choose Access</option>
+                        </select>
+
+                    </div>
+                    <div class="m-b-10">
+                        <select class="custom-select" id="idstatus" name="idstatus" style="min-width: 300px;" required asp-items="ViewBag.lsStatus">
+                            <option value="" disabled selected>Choose Status</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-lg-4 text-right">
+                    <a class="btn btn-primary" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Create">
+                        <i class="anticon anticon-plus-circle m-r-5"></i>
+                        <span>Add Accounts</span>
+                    </a>
+                </div>*@
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover e-commerce-table">
+                <thead>
+                    <tr>
+
+                        <th>ID</th>
+                        <th>FullName</th>
+                        <th>Birthday</th>
+                        <th>Adress</th>
+                        <th>CreateDate</th>
+                        <th>LastLogin</th>
+                        <th>Active</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.CustomerId
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img class="img-fluid rounded" src="~/Adminassets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
+                                        <div class="m-b-0 m-l-10">
+                                            <h6>@item.FullName</h6>
+                                            <h6>@item.Phone</h6>
+                                            <h6>@item.Email</h6>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    @if (item.Birthday != null)
+                                    {
+                                        @item.Birthday.Value.ToString("dd/MM/yyyy")
+                                    }
+
+                                </td>
+                                <td>@item.Address</td>
+                                <td>
+                                    @if(item.CreateDate!=null)
+                                    {
+                                        @item.CreateDate.Value.ToString("dd/MM/yyyy")
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.LastLogin != null)
+                                    {
+                                        @item.LastLogin.Value.ToString("HH:mm dd/MM/yyyy")
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Active)
+                                    {
+                                        <div class="d-flex align-items-center">
+                                            <div class="badge badge-success badge-dot m-r-10"></div>
+                                            <div>Active</div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="d-flex align-items-center">
+                                            <div class="badge badge-danger badge-dot m-r-10"></div>
+                                            <div>Block</div>
+                                        </div>
+                                    }
+                                </td>
+                                <td class="text-center">
+                                    <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminCustomers" asp-action="Details" asp-route-id="@item.CustomerId">View</a>
+                                    <a class="btn btn-warning  btn-tone m-r-5" asp-area="Admin" asp-controller="AdminCustomers" asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a>
+                                    <a class="btn btn-danger  btn-tone m-r-5" asp-area="Admin" asp-controller="AdminCustomers" asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div aria-label="Page navigation example">
+            <ul class="pagination">
+                <pager class="pages-container" list="@Model" asp-controller="AdminCustomers" asp-action="Index" />
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,35 @@
+﻿@model OnlineMarketStore.ModelViews.OrderDetailVM
+@{
+    var total = Model.OrderDetail.Sum(x => x.Total);
+}
+<h3>Information: #@Model.Order.OrderId</h3>
+<br />
+<p>Date Create: @Model.Order.OrderDate</p>
+<p>Status: @Model.Order.TransactStatus.Status</p>
+<p>Total: <strong> $@total </strong></p>
+<p>Shipping Date: @Model.Order.ShipDate</p>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <tbody>
+            <tr>
+                <th>#</th>
+                <th>Product</th>
+                <th>Amount</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+
+            @foreach (var item in Model.OrderDetail)
+            {
+                <tr>
+                    <td>@item.ProductId</td>
+                    <td>@item.Product.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Product.ProductName</td>
+                    <td>$@item.Total</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

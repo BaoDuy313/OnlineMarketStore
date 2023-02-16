@@ -1,0 +1,110 @@
+﻿@model OnlineMarketStore.Models.Order
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminOrders" asp-action="Index">Order List</a>
+            <span class="breadcrumb-item active">Order Edit</span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <form asp-controller="AdminOrders" asp-action="Edit" asp-route-id="@Model.OrderId" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="OrderId" />
+            <input type="hidden" asp-for="CustomerId" />
+            <input type="hidden" asp-for="OrderDate" />
+            <input type="hidden" asp-for="Note" />
+            <input type="hidden" asp-for="Adress" />
+            <input type="hidden" asp-for="ShipDate" />
+            <input type="hidden" asp-for="PaymentDate" />
+            <input type="hidden" asp-for="TotalMoney" />
+            <div class="page-header no-gutters has-tab">
+                <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+                    <div class="media align-items-center m-b-15">
+                        <a class="btn btn-primary" asp-area="Admin" asp-controller="AdminOrders" asp-action="Index">Back to List</a>
+                    </div>
+                    <div class="m-b-15">
+                        <button class="btn btn-primary">
+                            <i class="anticon anticon-save"></i>
+                            <span>Save</span>
+                        </button>
+                    </div>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#product-edit-basic">Basic Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#product-edit-option">Option Info</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content m-t-15">
+                <div class="tab-pane fade show active" id="product-edit-basic">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-semibold" for="productPrice">Price</label>
+                                    <p>@Model.Customer.FullName</p>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-semibold" for="productPrice">Address</label>
+                                    <p>@Model.Adress</p>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-semibold" for="productPrice">Total</label>
+                                    <p>$@Model.TotalMoney</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label class="font-weight-semibold" for="productCategory">Status</label>
+                                    <select class="custom-select" asp-for="TransactStatusId" style="min-width: 300px;" required asp-items="ViewBag.TransactStatusId">
+                                        <option value="" disabled selected>Choose Status</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="product-edit-option">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="form-group">
+                                <label class="font-weight-semibold" for="productPrice">Note</label>
+                                <input type="text" class="form-control" asp-for="Note">
+                            </div>
+                            <div class="row">
+                                <div class="m-t-25">
+                                    <div class="form-group d-flex align-items-center">
+                                        <div class="switch m-r-10">
+                                            <input type="checkbox" asp-for="Deleted" >
+                                            <label for="Deleted"></label>
+                                        </div>
+                                        <label>Deleted</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</div>

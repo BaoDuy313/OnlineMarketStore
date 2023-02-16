@@ -1,0 +1,30 @@
+﻿@model List<Product>
+@if (Model != null)
+{
+    <ul class="dropdown-menu show  " style="position:absolute">
+
+        @foreach (var item in Model)
+        {
+            <li class="p-4 col-12">
+                <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.ProductId">
+                    <div class="row">
+                        <div class="col-4">
+                            <img class="img-fluid rounded" src="~/images/products/@item.Thumb" style="max-width: 60px" alt="">
+                        </div>
+                        <div class="col-8">
+                            <div class="" >
+                                @item.Title
+                            </div>
+                            <div class="">
+                                @item.ProductName
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </li>
+        }
+    </ul>
+
+
+}

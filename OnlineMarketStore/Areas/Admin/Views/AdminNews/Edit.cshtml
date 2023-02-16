@@ -1,0 +1,161 @@
+﻿@model OnlineMarketStore.Models.News
+
+@{
+    ViewData["Title"] = "Edit News";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section Styles{
+    <link href="~/Adminassets/summernote/summernote-bs4.css" rel="stylesheet" />
+    <link href="~/Adminassets/summernote/summernote.css" rel="stylesheet" />
+}
+<div class="new-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminNews" asp-action="Index">News List</a>
+            <span class="breadcrumb-item active">Edit New</span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <form asp-controller="AdminNews" asp-action="Edit" asp-route-id="@Model.PostId" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PostId" />
+            <input type="hidden" asp-for="Thumb" />
+            <input type="hidden" asp-for="CreateDate" />
+            <div class="new-header no-gutters has-tab">
+                <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+                    <div class="media align-items-center m-b-15">
+                        <a class="btn btn-primary" asp-area="Admin" asp-controller="AdminNews" asp-action="Index">Back to List</a>
+                    </div>
+                    <div class="m-b-15">
+                        <button class="btn btn-primary">
+                            <i class="anticon anticon-save"></i>
+                            <span>Save</span>
+                        </button>
+                    </div>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#new-edit-basic">Basic Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#new-edit-option">Option Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#new-edit-description">Contents</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content m-t-15">
+                <div class="tab-pane fade show active" id="new-edit-basic">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="font-weight-semibold" for="newName">Title</label>
+                                <input type="text" class="form-control" asp-for="Title">
+                            </div>
+                            <div class="form-group">
+                                <label class="font-weight-semibold" for="newBrand">Image</label>
+                                <input class="form-control-file" name="fThumb" type="file" asp-for="Thumb">
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label class="font-weight-semibold" for="productCategory">Account</label>
+                                    <select class="custom-select" asp-for="AccountId" style="min-width: 300px;" required asp-items="ViewBag.AccountId">
+                                        <option value="" disabled selected>Choose Account</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label class="font-weight-semibold" for="productCategory">Category</label>
+                                    <select class="custom-select" asp-for="CatId" style="min-width: 300px;" required asp-items="ViewBag.CatId">
+                                        <option value="" disabled selected>Choose Category</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="new-edit-option">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="m-t-25">
+                                    <div class="form-group d-flex align-items-center">
+                                        <div class="switch m-r-10">
+                                            <input type="checkbox" asp-for="Published">
+                                            <label for="Published"></label>
+                                        </div>
+                                        <label>Publish</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="m-t-25">
+                                    <div class="form-group d-flex align-items-center">
+                                        <div class="switch m-r-10">
+                                            <input type="checkbox" asp-for="IsHot">
+                                            <label for="IsHot"></label>
+                                        </div>
+                                        <label>Publish</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="m-t-25">
+                                    <div class="form-group d-flex align-items-center">
+                                        <div class="switch m-r-10">
+                                            <input type="checkbox" asp-for="IsNewfeed">
+                                            <label for="IsNewfeed"></label>
+                                        </div>
+                                        <label>IsNewfeed</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="font-weight-semibold" for="productPrice">Short Contents</label>
+                                <textarea class="summernote" asp-for="Scontents"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="new-edit-description">
+                    <div class="card">
+                        <div class="card-body">
+                            <label for="Description"></label>
+                            <textarea class="summernote" asp-for="Contents"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/Adminassets/vendors/select2/select2.min.js"></script>
+    <script src="~/Adminassets/js/news/e-commerce-product-edit.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="~/Adminassets/summernote/summernote-bs4.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            $('.summernote').summernote({
+                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+                styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5'],
+                height: 200,
+                minHeight: null,
+                maxHeight: null,
+                focus: true
+            });
+        });
+    </script>
+}
+
+
+
+
