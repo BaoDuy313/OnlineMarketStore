@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\duyru\\Desktop\\Hoc tap\\.NETCORE\\Tutorial\\project\\OnlineMarketStore\\OnlineMarketStore\\OnlineMarketStore.csproj": {}
+    "C:\\Users\\duyru\\Desktop\\Hoc tap\\.NETCORE\\Tutorial\\OnlineMarketStore\\OnlineMarketStore\\OnlineMarketStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\duyru\\Desktop\\Hoc tap\\.NETCORE\\Tutorial\\project\\OnlineMarketStore\\OnlineMarketStore\\OnlineMarketStore.csproj": {
+    "C:\\Users\\duyru\\Desktop\\Hoc tap\\.NETCORE\\Tutorial\\OnlineMarketStore\\OnlineMarketStore\\OnlineMarketStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\duyru\\Desktop\\Hoc tap\\.NETCORE\\Tutorial\\project\\OnlineMarketStore\\OnlineMarketStore\\OnlineMarketStore.csproj",
+        "projectUniqueName": "C:\\Users\\duyru\\Desktop\\Hoc tap\\.NETCORE\\Tutorial\\OnlineMarketStore\\OnlineMarketStore\\OnlineMarketStore.csproj",
         "projectName": "OnlineMarketStore",
-        "projectPath": "C:\\Users\\duyru\\Desktop\\Hoc tap\\.NETCORE\\Tutorial\\project\\OnlineMarketStore\\OnlineMarketStore\\OnlineMarketStore.csproj",
+        "projectPath": "C:\\Users\\duyru\\Desktop\\Hoc tap\\.NETCORE\\Tutorial\\OnlineMarketStore\\OnlineMarketStore\\OnlineMarketStore.csproj",
         "packagesPath": "C:\\Users\\duyru\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\duyru\\Desktop\\Hoc tap\\.NETCORE\\Tutorial\\project\\OnlineMarketStore\\OnlineMarketStore\\obj\\",
+        "outputPath": "C:\\Users\\duyru\\Desktop\\Hoc tap\\.NETCORE\\Tutorial\\OnlineMarketStore\\OnlineMarketStore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\duyru\\AppData\\Roaming\\NuGet\\NuGet.Config",

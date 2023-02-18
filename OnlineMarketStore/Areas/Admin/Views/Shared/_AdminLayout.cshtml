@@ -17,14 +17,14 @@
     @await RenderSectionAsync("Styles", required: false)
 
 </head>
-@using Microsoft.AspNetCore.Http
+@*@using Microsoft.AspNetCore.Http
 @using Microsoft.EntityFrameworkCore;
 @model OnlineMarketStore.Models.Account
 @{ 
     dbMarketsContext _context = new dbMarketsContext();
     var id = Context.Session.GetString("AccountId");
     Account acc = _context.Accounts.Include(p => p.Role).Where(x=>x.AccountId==Convert.ToInt32(id)).FirstOrDefault();
-}
+}*@
 <body>
     <div class="app">
         <div class="layout">
@@ -135,8 +135,8 @@
                                             <img src="~/Adminassets/images/avatars/thumb-3.jpg" alt="">
                                         </div>
                                         <div class="m-l-10">
-                                            <p class="m-b-0 text-dark font-weight-semibold">@acc.FullName</p>
-                                            <p class="m-b-0 opacity-07">@acc.Role.RoleName</p>
+                                            @*<p class="m-b-0 text-dark font-weight-semibold">@acc.FullName</p>
+                                            <p class="m-b-0 opacity-07">@acc.Role.RoleName</p>*@
                                         </div>
                                     </div>
                                 </div>

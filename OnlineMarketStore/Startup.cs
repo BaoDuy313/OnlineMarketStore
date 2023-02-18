@@ -39,9 +39,9 @@ namespace OnlineMarketStore
                {
                    p.Cookie.Name = "UserLoginCookie";
                    p.ExpireTimeSpan = TimeSpan.FromDays(1);
-                    //p.LoginPath = "/dang-nhap.html";
-                    //p.LogoutPath = "/dang-xuat/html";
-                    p.AccessDeniedPath = "/not-found.html";
+                   //p.LoginPath = "/dang-nhap.html";
+                   //p.LogoutPath = "/dang-xuat/html";
+                   p.AccessDeniedPath = "/not-found.html";
                });
 
 
@@ -73,8 +73,8 @@ namespace OnlineMarketStore
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "areas",
-                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                   name: "areas",
+                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

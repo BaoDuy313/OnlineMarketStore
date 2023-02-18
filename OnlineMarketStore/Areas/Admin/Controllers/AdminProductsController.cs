@@ -10,13 +10,14 @@ using Microsoft.EntityFrameworkCore;
 using OnlineMarketStore.Helpper;
 using OnlineMarketStore.Models;
 using OnlineMarketStore.Extension;
-using PagedList.Core;
+using PagedList.Core.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using PagedList.Core;
 
 namespace OnlineMarketStore.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+   [Authorize]
     public class AdminProductsController : Controller
     {
         private readonly dbMarketsContext _context;

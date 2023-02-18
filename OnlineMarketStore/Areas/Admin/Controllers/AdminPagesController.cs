@@ -16,7 +16,7 @@ namespace OnlineMarketStore.Areas.Admin.Controllers
 {
 
     [Area("Admin")]
-    [Authorize]
+   [Authorize]
     public class AdminPagesController : Controller
     {
         private readonly dbMarketsContext _context;

@@ -12,7 +12,7 @@ using PagedList.Core;
 namespace OnlineMarketStore.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+   [Authorize]
     public class AdminCustomersController : Controller
     {
         private readonly dbMarketsContext _context;

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IbpN22GUnsqsJNEe4Tk5Az5+6QMi4mM/wPIVwtu8jMQWgRxaJpe2x+VPzZnQO0CU826LWFCNXi+7yqhz6t6mCQ==",
+  "dgSpecHash": "Zht98wnraZVcbjSBPlSRBZkQRcS/H2ri4XsJCgwbnid9zGc9cwhmeXliYVROS0j7ZUSqAuafxBRSSFXS2TnRnQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\duyru\\Desktop\\Hoc tap\\.NETCORE\\Tutorial\\project\\OnlineMarketStore\\OnlineMarketStore\\OnlineMarketStore.csproj",
+  "projectFilePath": "C:\\Users\\duyru\\Desktop\\Hoc tap\\.NETCORE\\Tutorial\\OnlineMarketStore\\OnlineMarketStore\\OnlineMarketStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\duyru\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\duyru\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

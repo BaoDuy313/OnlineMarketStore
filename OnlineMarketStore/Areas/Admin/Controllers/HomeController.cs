@@ -9,7 +9,7 @@ namespace OnlineMarketStore.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("admin.html", Name = "AdminIndex")]
-    [Authorize]
+   [Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()
